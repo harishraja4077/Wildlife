@@ -75,7 +75,7 @@ img {
 }
 
 .section-padding {
-    padding: 100px 0;
+    padding: 50px 0;
 }
 
 .text-center {
@@ -164,7 +164,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 20px 0;
+    padding: 6px 0;
     transition: var(--transition-fast);
 }
 
@@ -172,7 +172,7 @@ header.sticky {
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    padding: 15px 0;
+    padding: 5px 0;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -180,6 +180,7 @@ header.sticky {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    min-height: 50px;
 }
 
 .logo img {
@@ -195,6 +196,7 @@ header.sticky .logo img {
 .nav-links {
     display: flex;
     gap: 30px;
+    align-items: center;
 }
 
 .nav-links li a {
