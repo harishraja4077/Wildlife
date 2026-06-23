@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Stackly Wildlife Tourism</title>
+    
+    <!-- External Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 60px;
+        }
+        
+        .mission-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            border-top: 5px solid var(--secondary-color);
+        }
+        
+        .mission-card h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="sticky">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.webp" alt="Stackly Wildlife Tourism Logo">
+            </a>
+            
+            <button class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destination.html">Destinations</a></li>
+                <li><a href="holidaypackage.html">Holiday Packages</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: url('https://loremflickr.com/800/600/wildlife,safari?random=1');">
+        <div class="page-header-content" data-aos="fade-up">
+            <h1>About Us</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> &nbsp;/&nbsp; About Us
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="section-padding about-snippet">
+        <div class="container about-grid">
+            <div class="about-text" data-aos="fade-right">
+                <div class="section-title" style="text-align: left;">
+                    <h2>Our Story</h2>
+                </div>
+                <p><strong>Stackly Wildlife Tourism</strong> was born out of a profound love for nature and a desire to share the untold stories of the wild with the world. We started as a small group of wildlife enthusiasts and have grown into a premier wildlife tourism agency.</p>
+                <p>We believe that a true safari experience goes beyond just spotting animals; it’s about understanding the ecosystem, appreciating the silence of the jungle, and returning with a sense of wonder. Over the years, we have guided thousands of travelers into the depths of India's most renowned national parks, from the rugged terrains of Ranthambore to the dense sal forests of Kanha.</p>
+                <p>Our commitment to sustainable tourism ensures that our adventures leave a positive impact on local communities and wildlife conservation efforts.</p>
+            </div>
+            <div class="about-img" data-aos="fade-left">
+                <img src="images/hero_poster_11zon.webp" alt="Safari Jeep">
+            </div>
+        </div>
+        
+        <div class="container mission-grid">
+            <div class="mission-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Our Mission</h3>
+                <p>To provide unparalleled, responsible wildlife experiences that inspire conservation and foster a deep connection between humanity and nature, all while delivering premium comfort and safety.</p>
+            </div>
+            <div class="mission-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>Our Vision</h3>
+                <p>To be the leading wildlife tourism provider globally, known for our sustainable practices, exceptional service, and dedication to preserving the natural habitats for future generations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Features Reused for Continuity -->
+    <section class="section-padding features-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>The Stackly Advantage</h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="feature-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <h4>Eco-Friendly</h4>
+                    <p>We promote zero-trace tourism and support local conservation drives.</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="feature-icon"><i class="fa-solid fa-user-tie"></i></div>
+                    <h4>Pro Naturalists</h4>
+                    <p>Our guides are certified experts with decades of field experience.</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="feature-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <h4>Tailored Itineraries</h4>
+                    <p>Every journey is customized to fit your specific interests and schedule.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Naturalists (Section 4) -->
+    <section class="section-padding" style="background-color: var(--bg-color);">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Our Expert Naturalists</h2>
+                <p>Meet the passionate guides who will make your safari unforgettable.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-img">
+                        <img src="images/client2.webp" alt="Rajesh Kumar">
+                    </div>
+                    <h4>Rajesh Kumar</h4>
+                    <div class="team-role">Head Naturalist, Ranthambore</div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">With 15 years of experience tracking tigers, Rajesh ensures every guest leaves with a story.</p>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-img">
+                        <img src="images/head_relations_it.webp" alt="Aarti Desai">
+                    </div>
+                    <h4>Aarti Desai</h4>
+                    <div class="team-role">Wildlife Biologist, Gir</div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">An expert on Asiatic lions, Aarti combines her scientific knowledge with an infectious passion.</p>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-img">
+                        <img src="images/david_miller_it.webp" alt="Vikram Singh">
+                    </div>
+                    <h4>Vikram Singh</h4>
+                    <div class="team-role">Safari Lead, Jim Corbett</div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Vikram's knowledge of the Corbett terrain and birdlife is unparalleled in the region.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conservation Efforts (Section 5) -->
+    <section class="section-padding">
+        <div class="container about-grid">
+            <div class="about-img" data-aos="fade-right">
+                <img src="images/gallery_tiger_11zon.webp" alt="Conservation">
+            </div>
+            <div class="about-text" data-aos="fade-left">
+                <div class="section-title" style="text-align: left; margin-bottom: 30px;">
+                    <h2>Our Commitment to Conservation</h2>
+                </div>
+                <p>We don't just explore the wild; we actively protect it. A portion of every booking goes directly to local wildlife conservation charities and anti-poaching units.</p>
+                <p>Our operations are 100% carbon-neutral. We use eco-friendly vehicles where possible and enforce a strict zero-waste policy on all our safaris.</p>
+                <ul class="package-features" style="margin-top: 20px;">
+                    <li><i class="fa-solid fa-check" style="color: var(--secondary-color);"></i> Funding local tiger reserves</li>
+                    <li><i class="fa-solid fa-check" style="color: var(--secondary-color);"></i> Supporting indigenous communities</li>
+                    <li><i class="fa-solid fa-check" style="color: var(--secondary-color);"></i> Plastic-free travel policies</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics (Section 6) -->
+    <section class="section-padding stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-number">10k+</div>
+                    <div class="stat-text">Happy Travelers</div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-text">Expert Guides</div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-number">15</div>
+                    <div class="stat-text">National Parks</div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="stat-number">5M+</div>
+                    <div class="stat-text">Donated to Charity</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Partners (Section 7) -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Our Trusted Partners</h2>
+            </div>
+            <div class="partners-grid" data-aos="fade-up" data-aos-delay="100">
+                <img src="images/culture1.webp" alt="WWF Partner">
+                <img src="images/Marcus Aureliu.webp" alt="NatGeo Partner">
+                <img src="images/Elena Vance.webp" alt="Incredible India">
+                <img src="images/head_relations_it.webp" alt="TripAdvisor">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <a href="index.html" style="display: block; margin-bottom: 20px;">
+                        <img src="images/logo.webp" alt="Stackly Wildlife Tourism Logo" class="footer-logo-img" style="height: 150px;">
+                    </a>
+                    <p>Experience the ultimate wildlife adventure with our premium safari and holiday packages.</p>
+                    <div class="social-links">
+                        <a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="404.html"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="404.html"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="destination.html">Destinations</a></li>
+                        <li><a href="holidaypackage.html">Holiday Packages</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="404.html">Privacy Policy</a></li>
+                        <li><a href="404.html">Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Top Safaris</h4>
+                    <ul class="footer-links">
+                        <li><a href="destination.html">Jim Corbett Safari</a></li>
+                        <li><a href="destination.html">Ranthambore Safari</a></li>
+                        <li><a href="destination.html">Gir Lion Safari</a></li>
+                        <li><a href="destination.html">Kaziranga Safari</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul class="footer-links">
+                        <li style="display: flex; align-items: flex-start; gap: 12px;">
+                            <i class="fa-solid fa-location-dot" style="margin-top: 5px; color: var(--secondary-color);"></i>
+                            <div>
+                                <strong>Headquarters:</strong><br>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil,Salem,<br>Tamil Nadu 636008
+                            </div>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 12px;">
+                            <i class="fa-solid fa-phone" style="margin-top: 5px; color: var(--secondary-color);"></i> 
+                            <div>
+                                <a href="tel:+919876543210">+91 98765 43210</a><br>
+                                <a href="tel:+918765432109">+91 87654 32109</a>
+                            </div>
+                        </li>
+                        <li style="color: #ccc; display: flex; gap: 10px;">
+                            <i class="fa-solid fa-envelope" style="margin-top: 5px; color: var(--secondary-color);"></i>
+                            <a href="mailto:info@stacklywildlife.com">info@stacklywildlife.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly Wildlife Tourism. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

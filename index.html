@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly Wildlife Tourism</title>
+
+    <!-- External Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.webp" alt="Stackly Wildlife Tourism Logo">
+            </a>
+
+            <button class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="destination.html">Destinations</a></li>
+                <li><a href="holidaypackage.html">Holiday Packages</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: url('images/mufasa_11zon.webp') center/cover;">
+        <video autoplay muted loop playsinline preload="auto" crossorigin="anonymous" class="hero-video-bg" poster="images/hero_poster.png">
+            <source src="images/elephant video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+            <h1>Stackly Wildlife Tourism</h1>
+            <p>Experience the majestic beauty of the wild. Premium safaris and holiday packages tailored for
+                unforgettable adventures.</p>
+            <a href="destination.html" class="btn btn-primary">Explore Safaris</a>
+        </div>
+    </section>
+
+    <!-- About Snippet -->
+    <section class="section-padding about-snippet">
+        <div class="container about-grid">
+            <div class="about-text" data-aos="fade-right">
+                <div class="section-title" style="text-align: left;">
+                    <h2>Welcome to the Wild</h2>
+                </div>
+                <p>At Stackly Wildlife Tourism, we bring you closer to nature's most magnificent creations. Our expertly
+                    guided safaris take you deep into the heart of India's premier national parks.</p>
+                <p>From the roaring tigers of Ranthambore to the Asiatic lions of Gir, we curate premium holiday
+                    packages that blend thrilling wildlife encounters with luxurious stays.</p>
+                <a href="about.html" class="btn btn-primary" style="margin-top: 20px;">Discover Our Story</a>
+            </div>
+            <div class="about-img" data-aos="fade-left">
+                <img src="images/elephant.webp"
+                    alt="Lion resting">
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Destinations -->
+    <section class="section-padding destinations-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Top Destinations</h2>
+                <p>Explore the most sought-after national parks and reserves.</p>
+            </div>
+
+            <div class="packages-grid">
+                <div class="destination-card" data-aos="fade-up" data-aos-delay="100"
+                    onclick="window.location.href='destination.html'">
+                    <img src="images/monkey_11zon.webp"
+                        alt="Jim Corbett Safari">
+                    <div class="destination-info">
+                        <h3>Jim Corbett</h3>
+                        <p>Home of the Royal Bengal Tiger. Experience thrilling jeep safaris.</p>
+                        <span class="btn btn-primary" style="padding: 8px 20px; font-size: 0.8rem;">Explore</span>
+                    </div>
+                </div>
+
+                <div class="destination-card" data-aos="fade-up" data-aos-delay="200"
+                    onclick="window.location.href='destination.html'">
+                    <img src="images/zebra_11zon.webp"
+                        alt="Ranthambore Safari">
+                    <div class="destination-info">
+                        <h3>Ranthambore</h3>
+                        <p>Ancient ruins meets wild nature. A photographer's paradise.</p>
+                        <span class="btn btn-primary" style="padding: 8px 20px; font-size: 0.8rem;">Explore</span>
+                    </div>
+                </div>
+
+                <div class="destination-card" data-aos="fade-up" data-aos-delay="300"
+                    onclick="window.location.href='destination.html'">
+                    <img src="images/gallery_tiger_11zon.webp"
+                        alt="Gir Lion Safari">
+                    <div class="destination-info">
+                        <h3>Gir National Park</h3>
+                        <p>The only natural habitat of the majestic Asiatic Lions.</p>
+                        <span class="btn btn-primary" style="padding: 8px 20px; font-size: 0.8rem;">Explore</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 50px;" data-aos="fade-up">
+                <a href="destination.html" class="btn btn-outline">View All Destinations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Features -->
+    <section class="section-padding features-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Why Choose Stackly</h2>
+                <p>We provide a premium, hassle-free wildlife tourism experience.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="feature-icon"><i class="fa-solid fa-gem"></i></div>
+                    <h4>Premium Stays</h4>
+                    <p>Relax in handpicked, luxurious jungle resorts that blend comfort with nature.</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="feature-icon"><i class="fa-solid fa-binoculars"></i></div>
+                    <h4>Expert Guides</h4>
+                    <p>Our experienced naturalists ensure you get the best sightings and insights.</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h4>Safe & Secure</h4>
+                    <p>Your safety is our priority. We partner with top-rated transport and safari providers.</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+                    <h4>24/7 Support</h4>
+                    <p>Dedicated customer support team to assist you throughout your journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wildlife Gallery (Section 5) -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Moments in the Wild</h2>
+                <p>A glimpse into the stunning encounters captured on our safaris.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="images/gallery_lion_11zon.webp" alt="Lion">
+                    <div class="gallery-overlay"><span>Majestic Lion</span></div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="images/gallery_tiger_11zon.webp" alt="Tiger">
+                    <div class="gallery-overlay"><span>Bengal Tiger</span></div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="images/rhino.webp" alt="Rhino" onerror="this.src='images/gallery_lion.png'">
+                    <div class="gallery-overlay"><span>Indian Rhino</span></div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="images/leopard.webp" alt="Leopard" onerror="this.src='images/gallery_tiger.png'">
+                    <div class="gallery-overlay"><span>Spotted Leopard</span></div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="images/gallery_elephant_11zon.webp" alt="Elephant">
+                    <div class="gallery-overlay"><span>Wild Elephant</span></div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="images/dear_11zon.webp" alt="Deer" onerror="this.src='images/gallery_elephant.png'">
+                    <div class="gallery-overlay"><span>Spotted Deer</span></div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="images/monkey_11zon.webp" alt="Deer" onerror="this.src='images/gallery_elephant.png'">
+                    <div class="gallery-overlay"><span>Monkey</span></div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="images/zebra_11zon.webp" alt="Deer" onerror="this.src='images/gallery_elephant.png'">
+                    <div class="gallery-overlay"><span>Zebra</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials (Section 6) -->
+    <section class="section-padding" style="background-color: var(--bg-color);">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Traveler Reviews</h2>
+                <p>Hear from adventurers who have experienced the wild with us.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-quote-left quote-icon"></i>
+                    <p class="testimonial-text">"The Ranthambore safari was breathtaking. Our guide knew exactly where to find the tigers. An absolutely premium experience from start to finish."</p>
+                    <div class="testimonial-author">Sarah Jenkins</div>
+                    <div class="testimonial-rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-quote-left quote-icon"></i>
+                    <p class="testimonial-text">"Stackly Wildlife Tourism handled everything flawlessly. The luxury resort in Jim Corbett was amazing, and the wildlife sightings were unforgettable."</p>
+                    <div class="testimonial-author">Michael T.</div>
+                    <div class="testimonial-rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-quote-left quote-icon"></i>
+                    <p class="testimonial-text">"A once in a lifetime trip to see the Asiatic Lions in Gir. The naturalists were so knowledgeable and the entire trip was perfectly organized."</p>
+                    <div class="testimonial-author">Priya Sharma</div>
+                    <div class="testimonial-rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section (Section 7) -->
+    <section class="section-padding newsletter-section" data-aos="fade-in">
+        <div class="container">
+            <div class="section-title">
+                <h2>Join the Adventure</h2>
+                <p style="color: #eee;">Subscribe to our newsletter for exclusive safari offers and wildlife updates.</p>
+            </div>
+            <form class="newsletter-form" data-aos="fade-up" data-aos-delay="200" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit" class="btn btn-primary">Subscribe Now</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                        <a href="index.html" style="display: block; margin-bottom: 20px;">
+                            <img src="images/logo.webp" alt="Stackly Wildlife Tourism Logo" class="footer-logo-img" style="height: 150px;">
+                        </a>
+                    <p>Experience the ultimate wildlife adventure with our premium safari and holiday packages.</p>
+                    <div class="social-links">
+                        <a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="404.html"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="404.html"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="destination.html">Destinations</a></li>
+                        <li><a href="holidaypackage.html">Holiday Packages</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="404.html">Privacy Policy</a></li>
+                        <li><a href="404.html">Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Top Safaris</h4>
+                    <ul class="footer-links">
+                        <li><a href="destination.html">Jim Corbett Safari</a></li>
+                        <li><a href="destination.html">Ranthambore Safari</a></li>
+                        <li><a href="destination.html">Gir Lion Safari</a></li>
+                        <li><a href="destination.html">Kaziranga Safari</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul class="footer-links">
+                        <li style="display: flex; align-items: flex-start; gap: 12px;">
+                            <i class="fa-solid fa-location-dot" style="margin-top: 5px; color: var(--secondary-color);"></i>
+                            <div>
+                                <strong>Headquarters:</strong><br>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil,Salem,<br>Tamil Nadu 636008
+                            </div>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 12px;">
+                            <i class="fa-solid fa-phone" style="margin-top: 5px; color: var(--secondary-color);"></i> 
+                            <div>
+                                <a href="tel:+919876543210">+91 98765 43210</a><br>
+                                <a href="tel:+918765432109">+91 87654 32109</a>
+                            </div>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 12px;">
+                            <i class="fa-solid fa-envelope" style="margin-top: 5px; color: var(--secondary-color);"></i>
+                            <a href="mailto:info@stacklywildlife.com">info@stacklywildlife.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                
+                <p>&copy; 2026 Stackly Wildlife Tourism. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
