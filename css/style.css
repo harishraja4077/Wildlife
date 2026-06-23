@@ -164,7 +164,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 6px 0;
+    padding: 4px 0;
     transition: var(--transition-fast);
 }
 
@@ -172,7 +172,7 @@ header.sticky {
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    padding: 5px 0;
+    padding: 3px 0;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -180,17 +180,17 @@ header.sticky {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 50px;
+    min-height: 30px;
 }
 
 .logo img {
-    height: 100px;
+    height: 120px;
     width: auto;
     transition: var(--transition-fast);
 }
 
 header.sticky .logo img {
-    height: 100px;
+    height: 60px;
 }
 
 .nav-links {
@@ -202,7 +202,7 @@ header.sticky .logo img {
 .nav-links li a {
     color: var(--text-light);
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 0.9rem;
     position: relative;
     text-transform: uppercase;
     letter-spacing: 1px;
