@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
     <!-- Header Navigation -->
     <header>
@@ -42,7 +44,7 @@
     <section class="section-padding contact-section">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <h2>Get In Touch</h2>
+                <h2 class="contact-heading"><i class="fa-solid fa-envelope contact-icon"></i> Get In Touch</h2>
                 <p>We would love to hear from you. Fill out the form below and we’ll get back to you shortly.</p>
             </div>
             <div class="contact-grid">
@@ -50,28 +52,31 @@
                 <div class="contact-form" data-aos="fade-right" data-aos-delay="100">
                     <form action="#" method="POST" id="contactForm">
                         <div class="form-group">
-                            <label for="name"><i class="fa-solid fa-user"></i> Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="John Doe" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="email"><i class="fa-solid fa-envelope"></i> Email</label>
-                            <input type="email" id="email" name="email" placeholder="john@example.com" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="phone"><i class="fa-solid fa-phone"></i> Phone</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" />
-                        </div>
-                        <div class="form-group">
-                            <label for="message"><i class="fa-solid fa-message"></i> Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Your inquiry..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+    <label for="name"><i class="fa-solid fa-user"></i> Your Name</label>
+    <input class="form-control" type="text" id="name" name="name" placeholder="John Doe" required />
+</div>
+<div class="form-group">
+    <label for="email"><i class="fa-solid fa-envelope"></i> Email</label>
+    <input class="form-control" type="email" id="email" name="email" placeholder="john@example.com" required />
+</div>
+<div class="form-group">
+    <label for="phone"><i class="fa-solid fa-phone"></i> Phone</label>
+    <input class="form-control" type="tel" id="phone" name="phone" placeholder="+91 98765 43210" />
+</div>
+<div class="form-group">
+    <label for="message"><i class="fa-solid fa-message"></i> Message</label>
+    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your inquiry..." required></textarea>
+</div>
+<button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
                 <!-- Map Placeholder -->
                 <div class="contact-map" data-aos="fade-left" data-aos-delay="200">
                     <!-- Replace src with actual Google Maps embed if available -->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.9356328397244!2d77.10249081543712!3d28.52794938252703!2m3!1f0!2f0!3f0!4m2!3d28.527949!4d77.102491" width="100%" height="400" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.9356328397244!2d77.10249081543712!3d28.52794938252703!2m3!1f0!2f0!3f0!4m2!3d28.527949!4d77.102491"
+                        width="100%" height="400" style="border:0; border-radius: 12px;" allowfullscreen=""
+                        loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -85,20 +90,31 @@
                 <p>Visit us at one of our physical branch locations.</p>
             </div>
             <div class="packages-grid">
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="100" style="background: #fff; text-align: left;">
-                    <h4 style="color: var(--primary-color);">New Delhi (HQ)</h4>
-                    <p style="color: var(--text-muted);"><i class="fa-solid fa-location-dot" style="color: var(--secondary-color);"></i> 124, Connaught Place, New Delhi - 110001</p>
-                    <p style="color: var(--text-muted);"><i class="fa-solid fa-phone" style="color: var(--secondary-color);"></i> +91 11 2345 6789</p>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100"
+                    style="background: #fff; text-align: left;">
+                    <h4 style="color: var(--primary-color);">Salem (HQ)</h4>
+                    <p style="color: var(--text-muted);"><i class="fa-solid fa-location-dot"
+                            style="color: var(--secondary-color);"></i>MMR Complex, Chinna Thirupathi, near Chinna
+                        Muniyappan Kovil,Salem,<br>Tamil Nadu 636008</p>
+                    <p style="color: var(--text-muted);"><i class="fa-solid fa-phone"
+                            style="color: var(--secondary-color);"></i> +91 11 2345 6789</p>
                 </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="200" style="background: #fff; text-align: left;">
-                    <h4 style="color: var(--primary-color);">Mumbai</h4>
-                    <p style="color: var(--text-muted);"><i class="fa-solid fa-location-dot" style="color: var(--secondary-color);"></i> 45, Linking Road, Bandra West, Mumbai - 400050</p>
-                    <p style="color: var(--text-muted);"><i class="fa-solid fa-phone" style="color: var(--secondary-color);"></i> +91 22 9876 5432</p>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200"
+                    style="background: #fff; text-align: left;">
+                    <h4 style="color: var(--primary-color);">Chennai</h4>
+                    <p style="color: var(--text-muted);"><i class="fa-solid fa-location-dot"
+                            style="color: var(--secondary-color);"></i> 45, Linking Road, Bandra West,chennai - 600028
+                    </p>
+                    <p style="color: var(--text-muted);"><i class="fa-solid fa-phone"
+                            style="color: var(--secondary-color);"></i> +91 22 9876 5432</p>
                 </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="300" style="background: #fff; text-align: left;">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300"
+                    style="background: #fff; text-align: left;">
                     <h4 style="color: var(--primary-color);">Bengaluru</h4>
-                    <p style="color: var(--text-muted);"><i class="fa-solid fa-location-dot" style="color: var(--secondary-color);"></i> 89, MG Road, Bengaluru - 560001</p>
-                    <p style="color: var(--text-muted);"><i class="fa-solid fa-phone" style="color: var(--secondary-color);"></i> +91 80 1234 5678</p>
+                    <p style="color: var(--text-muted);"><i class="fa-solid fa-location-dot"
+                            style="color: var(--secondary-color);"></i> 89, MG Road, Bengaluru - 560001</p>
+                    <p style="color: var(--text-muted);"><i class="fa-solid fa-phone"
+                            style="color: var(--secondary-color);"></i> +91 80 1234 5678</p>
                 </div>
             </div>
         </div>
@@ -112,21 +128,27 @@
             </div>
             <div class="faq-container" data-aos="fade-up" data-aos-delay="100">
                 <div class="faq-item">
-                    <div class="faq-question">What are your working hours? <i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-question">What are your working hours? <i class="fa-solid fa-chevron-down"></i>
+                    </div>
                     <div class="faq-answer">
-                        <p>Our phone lines and offices are open Monday to Saturday, from 9:00 AM to 7:00 PM (IST). However, email support is monitored 24/7 for urgent queries.</p>
+                        <p>Our phone lines and offices are open Monday to Saturday, from 9:00 AM to 7:00 PM (IST).
+                            However, email support is monitored 24/7 for urgent queries.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">How quickly do you respond to queries? <i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-question">How quickly do you respond to queries? <i
+                            class="fa-solid fa-chevron-down"></i></div>
                     <div class="faq-answer">
-                        <p>We aim to reply to all email and form inquiries within 12-24 hours. For immediate assistance, please call our toll-free number.</p>
+                        <p>We aim to reply to all email and form inquiries within 12-24 hours. For immediate assistance,
+                            please call our toll-free number.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">Do you offer corporate bookings? <i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-question">Do you offer corporate bookings? <i class="fa-solid fa-chevron-down"></i>
+                    </div>
                     <div class="faq-answer">
-                        <p>Yes, we organize corporate offsites and large group tours. Please specify your group size when filling out the contact form.</p>
+                        <p>Yes, we organize corporate offsites and large group tours. Please specify your group size
+                            when filling out the contact form.</p>
                     </div>
                 </div>
             </div>
@@ -138,24 +160,29 @@
         <div class="container">
             <div class="section-title" data-aos="fade-up">
                 <h2>Follow Our Journey</h2>
-                <p>Catch live updates and sightings on our Instagram <a href="#" style="color: var(--secondary-color);">@StacklyWildlife</a></p>
+                <p>Catch live updates and sightings on our Instagram <a href="#"
+                        style="color: var(--secondary-color);">@StacklyWildlife</a></p>
             </div>
             <div class="gallery-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
                 <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
                     <img src="images/whale_11zon.webp" alt="Insta 1">
-                    <div class="gallery-overlay" style="justify-content: center; align-items: center;"><i class="fa-brands fa-instagram" style="font-size: 2rem; color: #fff;"></i></div>
+                    <div class="gallery-overlay" style="justify-content: center; align-items: center;"><i
+                            class="fa-brands fa-instagram" style="font-size: 2rem; color: #fff;"></i></div>
                 </div>
                 <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
                     <img src="images/dear_11zon.webp" alt="Insta 2">
-                    <div class="gallery-overlay" style="justify-content: center; align-items: center;"><i class="fa-brands fa-instagram" style="font-size: 2rem; color: #fff;"></i></div>
+                    <div class="gallery-overlay" style="justify-content: center; align-items: center;"><i
+                            class="fa-brands fa-instagram" style="font-size: 2rem; color: #fff;"></i></div>
                 </div>
                 <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
                     <img src="images/zebra_11zon.webp" alt="Insta 3">
-                    <div class="gallery-overlay" style="justify-content: center; align-items: center;"><i class="fa-brands fa-instagram" style="font-size: 2rem; color: #fff;"></i></div>
+                    <div class="gallery-overlay" style="justify-content: center; align-items: center;"><i
+                            class="fa-brands fa-instagram" style="font-size: 2rem; color: #fff;"></i></div>
                 </div>
                 <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
                     <img src="images/monkey_11zon.webp" alt="Insta 4">
-                    <div class="gallery-overlay" style="justify-content: center; align-items: center;"><i class="fa-brands fa-instagram" style="font-size: 2rem; color: #fff;"></i></div>
+                    <div class="gallery-overlay" style="justify-content: center; align-items: center;"><i
+                            class="fa-brands fa-instagram" style="font-size: 2rem; color: #fff;"></i></div>
                 </div>
             </div>
         </div>
@@ -199,9 +226,11 @@
         <div class="container">
             <div class="section-title">
                 <h2>Stay Updated</h2>
-                <p style="color: #eee;">Get the latest wildlife news and safari offers delivered straight to your inbox.</p>
+                <p style="color: #eee;">Get the latest wildlife news and safari offers delivered straight to your inbox.
+                </p>
             </div>
-            <form class="newsletter-form" data-aos="fade-up" data-aos-delay="200" onsubmit="event.preventDefault(); alert('Subscribed!');">
+            <form class="newsletter-form" data-aos="fade-up" data-aos-delay="200"
+                onsubmit="event.preventDefault(); alert('Subscribed!');">
                 <input type="email" placeholder="Enter your email address" required>
                 <button type="submit" class="btn btn-primary">Subscribe</button>
             </form>
@@ -224,7 +253,7 @@
                         <a href="404.html"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
@@ -237,7 +266,7 @@
                         <li><a href="404.html">Terms &amp; Conditions</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-col">
                     <h4>Top Safaris</h4>
                     <ul class="footer-links">
@@ -247,18 +276,20 @@
                         <li><a href="destination.html">Kaziranga Safari</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-col">
                     <h4>Contact Info</h4>
                     <ul class="footer-links">
                         <li>
-                            <i class="fa-solid fa-location-dot" style="margin-top: 5px; color: var(--secondary-color);"></i>
+                            <i class="fa-solid fa-location-dot"
+                                style="margin-top: 5px; color: var(--secondary-color);"></i>
                             <div>
-                                <strong>Headquarters:</strong><br>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil,Salem,<br>Tamil Nadu 636008
+                                <strong>Headquarters:</strong><br>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan
+                                Kovil,Salem,<br>Tamil Nadu 636008
                             </div>
                         </li>
                         <li>
-                            <i class="fa-solid fa-phone" style="margin-top: 5px; color: var(--secondary-color);"></i> 
+                            <i class="fa-solid fa-phone" style="margin-top: 5px; color: var(--secondary-color);"></i>
                             <div>
                                 <a href="tel:+919876543210">+91 98765 43210</a><br>
                                 <a href="tel:+918765432109">+91 87654 32109</a>
@@ -271,7 +302,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2026 Stackly Wildlife Tourism. All rights reserved.</p>
             </div>
@@ -282,4 +313,5 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
 </body>
+
 </html>
