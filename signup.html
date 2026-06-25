@@ -96,20 +96,20 @@
 
         /* ── Brand ── */
         .auth-brand { text-align: center; margin-bottom: 28px; }
-        .brand-icon {
-            width: 64px; height: 64px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 16px;
-            box-shadow: 0 8px 24px rgba(212,175,55,0.4);
-            animation: pulseglow 3s ease-in-out infinite;
+        .auth-brand .auth-logo-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
-        @keyframes pulseglow {
-            0%, 100% { box-shadow: 0 8px 24px rgba(212,175,55,0.4); }
-            50%       { box-shadow: 0 8px 40px rgba(212,175,55,0.7); }
+        .auth-brand .auth-logo-link:hover {
+            transform: scale(1.03);
+            opacity: 0.9;
         }
-        .brand-icon i { color: #fff; font-size: 1.5rem; }
+        .auth-brand .auth-logo {
+            height: 92px;
+            display: block;
+            object-fit: contain;
+        }
         .auth-brand h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: #fff; margin-bottom: 6px; }
         .auth-brand p { color: var(--muted); font-size: 0.88rem; }
 
@@ -287,7 +287,9 @@
 
             <!-- Brand -->
             <div class="auth-brand">
-                <div class="brand-icon"><i class="fa-solid fa-leaf"></i></div>
+                <a href="index.html" class="auth-logo-link">
+                    <img src="images/logo.webp" alt="Stackly Wildlife Tourism" class="auth-logo">
+                </a>
                 <h1>Create Account</h1>
                 <p>Join Stackly Wildlife Tourism today</p>
             </div>

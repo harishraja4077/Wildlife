@@ -102,20 +102,20 @@
             text-align: center;
             margin-bottom: 32px;
         }
-        .auth-brand .brand-icon {
-            width: 64px; height: 64px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 16px;
-            box-shadow: 0 8px 24px rgba(212,175,55,0.4);
-            animation: pulseglow 3s ease-in-out infinite;
+        .auth-brand .auth-logo-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
-        @keyframes pulseglow {
-            0%, 100% { box-shadow: 0 8px 24px rgba(212,175,55,0.4); }
-            50%       { box-shadow: 0 8px 40px rgba(212,175,55,0.7); }
+        .auth-brand .auth-logo-link:hover {
+            transform: scale(1.03);
+            opacity: 0.9;
         }
-        .auth-brand .brand-icon i { color: #fff; font-size: 1.5rem; }
+        .auth-brand .auth-logo {
+            height: 92px;
+            display: block;
+            object-fit: contain;
+        }
         .auth-brand h1 {
             font-family: 'Playfair Display', serif;
             font-size: 1.9rem;
@@ -298,10 +298,12 @@
     <!-- Auth Card -->
     <div class="auth-wrapper">
         <div class="auth-card">
-
+           
             <!-- Brand -->
             <div class="auth-brand">
-                <div class="brand-icon"><i class="fa-solid fa-paw"></i></div>
+                <a href="index.html" class="auth-logo-link">
+                    <img src="images/logo.webp" alt="Stackly Wildlife Tourism" class="auth-logo">
+                </a>
                 <h1>Welcome Back</h1>
                 <p>Sign in to your Stackly Wildlife account</p>
             </div>
@@ -326,6 +328,12 @@
                     <button type="button" class="eye-btn" id="eyeBtn">
                         <i class="fa-solid fa-eye" id="eyeIcon"></i>
                     </button>
+                </div>
+                
+                <div class="forget-password" style="text-align:right; margin-bottom:15px; margin-top:-10px;">
+                    <a href="404.html"
+                        style="color:white; text-decoration:none; font-size:14px; font-weight:500;">Forgot
+                        Password?</a>
                 </div>
 
                 <button type="submit" class="btn-auth">
