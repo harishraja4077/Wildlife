@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Admin Dashboard – Stackly Wildlife</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#1c3627;--gold:#d4af37;--gold-dark:#b5952f;--bg:#0a1410;--card:rgba(255,255,255,0.06);--border:rgba(255,255,255,0.1);--text:#f0f0f0;--muted:rgba(255,255,255,0.55);--sw:270px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh;}
+/* SIDEBAR */
+.sidebar{width:var(--sw);background:linear-gradient(180deg,#060f09,#1c3627);border-right:1px solid var(--border);position:fixed;top:0;left:0;height:100vh;display:flex;flex-direction:column;z-index:200;transition:transform .3s;}
+.sb-logo{padding:26px 22px 18px;border-bottom:1px solid var(--border);}
+.sb-logo img{height:50px;}
+.sb-logo span{display:block;font-size:.68rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-top:6px;}
+.sb-admin{display:flex;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid var(--border);}
+.sa-av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#e74c3c,#c0392b);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;box-shadow:0 4px 14px rgba(231,76,60,.4);}
+.sa-info .name{font-weight:600;font-size:.93rem;}
+.sa-info .role{font-size:.72rem;color:#e74c3c;text-transform:uppercase;letter-spacing:1px;}
+.sidenav{flex:1;padding:18px 12px;overflow-y:auto;}
+.nav-sec{font-size:.65rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;padding:12px 10px 6px;}
+.nav-item{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;cursor:pointer;color:var(--muted);font-size:.88rem;font-weight:500;transition:all .25s;text-decoration:none;margin-bottom:3px;}
+.nav-item:hover,.nav-item.active{background:rgba(212,175,55,.12);color:var(--gold);}
+.nav-item.active{border-left:3px solid var(--gold);}
+.nav-item i{width:20px;text-align:center;}
+.sb-foot{padding:14px 18px;border-top:1px solid var(--border);}
+.btn-lo{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:10px;background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.25);color:#e74c3c;font-size:.86rem;font-weight:600;text-decoration:none;transition:all .25s;width:100%;}
+.btn-lo:hover{background:rgba(231,76,60,.2);}
+/* MAIN */
+.main{margin-left:var(--sw);flex:1;display:flex;flex-direction:column;}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 30px;background:rgba(10,20,16,.75);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.tb-title{font-family:'Playfair Display',serif;font-size:1.4rem;}.tb-title span{color:var(--gold);}
+.tb-right{display:flex;align-items:center;gap:14px;}
+.ib{width:40px;height:40px;border-radius:10px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);transition:all .25s;position:relative;}
+.ib:hover{color:var(--gold);border-color:var(--gold);}
+.bdg{position:absolute;top:-4px;right:-4px;width:16px;height:16px;border-radius:50%;background:#e74c3c;color:#fff;font-size:.55rem;display:flex;align-items:center;justify-content:center;font-weight:700;}
+.adav{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#e74c3c,#c0392b);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:.92rem;box-shadow:0 4px 12px rgba(231,76,60,.35);cursor:pointer;}
+/* CONTENT */
+.content{padding:28px;flex:1;}
+.pg{display:none;animation:fi .45s ease both;}
+.pg.active{display:block;}
+@keyframes fi{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-bottom:28px;}
+.sc{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;display:flex;align-items:center;gap:16px;transition:transform .3s,box-shadow .3s;animation:po .5s ease both;}
+@keyframes po{from{opacity:0;transform:scale(.93);}to{opacity:1;transform:scale(1);}}
+.sc:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.4);}
+.si{width:50px;height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.si.g{background:rgba(212,175,55,.15);color:var(--gold);}
+.si.r{background:rgba(231,76,60,.12);color:#e74c3c;}
+.si.b{background:rgba(52,152,219,.12);color:#3498db;}
+.si.gr{background:rgba(46,204,113,.12);color:#2ecc71;}
+.si.p{background:rgba(155,89,182,.12);color:#9b59b6;}
+.sv{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#fff;}
+.sl{font-size:.78rem;color:var(--muted);margin-top:2px;}
+/* TABLE */
+.tw{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+table{width:100%;border-collapse:collapse;}
+thead{background:rgba(255,255,255,.04);}
+th{padding:13px 16px;text-align:left;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);}
+td{padding:13px 16px;border-top:1px solid var(--border);font-size:.86rem;}
+tr:hover td{background:rgba(255,255,255,.025);}
+.bs{padding:4px 11px;border-radius:20px;font-size:.73rem;font-weight:600;}
+.bs.active{background:rgba(46,204,113,.15);color:#2ecc71;}
+.bs.pending{background:rgba(241,196,15,.15);color:#f1c40f;}
+.bs.blocked{background:rgba(231,76,60,.15);color:#e74c3c;}
+/* SECTION HEADER */
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+.sh h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;}
+.sh a,.sh button{font-size:.82rem;color:var(--gold);text-decoration:none;background:none;border:none;cursor:pointer;}
+/* CARDS GRID */
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;}
+.ic{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px;transition:transform .3s,box-shadow .3s;animation:po .5s ease both;}
+.ic:hover{transform:translateY(-5px);box-shadow:0 16px 38px rgba(0,0,0,.45);}
+.ic .ci{font-size:2rem;color:var(--gold);margin-bottom:12px;}
+.ic h4{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:8px;color:#fff;}
+.ic p{font-size:.83rem;color:var(--muted);line-height:1.65;}
+/* FORM */
+.pf{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:30px;max-width:540px;}
+.fr{margin-bottom:18px;}
+.fr label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;}
+.fr input,.fr select,.fr textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:12px 14px;color:#fff;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;transition:border-color .3s,box-shadow .3s;}
+.fr input:focus,.fr select:focus,.fr textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.12);}
+.fr input::placeholder,.fr textarea::placeholder{color:rgba(255,255,255,.3);}
+.fr select option{background:#1c3627;}
+.bsv{padding:12px 28px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border:none;border-radius:8px;color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:transform .2s,box-shadow .3s;}
+.bsv:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(212,175,55,.4);}
+/* ALERT BAR */
+.alert-bar{background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:12px;margin-bottom:24px;font-size:.88rem;color:var(--gold);}
+/* HAMBURGER */
+.hbtn{display:none;background:none;border:none;color:var(--text);font-size:1.3rem;cursor:pointer;margin-right:12px;}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:150;}
+@media(max-width:800px){
+.sidebar{transform:translateX(-100%);}.sidebar.open{transform:translateX(0);}
+.main{margin-left:0;}.hbtn{display:block;}.overlay.show{display:block;}
+.content{padding:18px;}.stats{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-logo">
+    <img src="images/logo.webp" alt="Logo">
+    <span>Wildlife Tourism</span>
+  </div>
+  <div class="sb-admin">
+    <div class="sa-av" id="ad-avatar">A</div>
+    <div class="sa-info">
+      <div class="name" id="ad-name">Admin</div>
+      <div class="role" id="ad-email" style="font-size:.7rem;color:rgba(255,255,255,.5);text-transform:none;letter-spacing:0;">-</div>
+    </div>
+  </div>
+  <nav class="sidenav">
+    <div class="nav-sec">Dashboard</div>
+    <a class="nav-item active" data-pg="overview" onclick="sp('overview')"><i class="fa-solid fa-gauge"></i> Overview</a>
+    <a class="nav-item" data-pg="users" onclick="sp('users')"><i class="fa-solid fa-users"></i> Manage Users</a>
+    <a class="nav-item" data-pg="bookings" onclick="sp('bookings')"><i class="fa-solid fa-calendar-check"></i> Bookings</a>
+    <div class="nav-sec">Content</div>
+    <a class="nav-item" data-pg="destinations" onclick="sp('destinations')"><i class="fa-solid fa-map-location-dot"></i> Destinations</a>
+    <a class="nav-item" data-pg="reports" onclick="sp('reports')"><i class="fa-solid fa-chart-line"></i> Reports</a>
+    <div class="nav-sec">System</div>
+    <a class="nav-item" data-pg="settings" onclick="sp('settings')"><i class="fa-solid fa-gear"></i> Settings</a>
+  </nav>
+  <div class="sb-foot">
+    <a href="login.html" class="btn-lo"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+  </div>
+</aside>
+<div class="overlay" id="overlay" onclick="cs()"></div>
+
+<!-- Main -->
+<div class="main">
+  <div class="topbar">
+    <div style="display:flex;align-items:center;">
+      <button class="hbtn" onclick="os()"><i class="fa-solid fa-bars"></i></button>
+      <div class="tb-title">Admin <span>Dashboard</span></div>
+    </div>
+    <div class="tb-right">
+      <div class="ib"><i class="fa-solid fa-bell"></i><div class="bdg">5</div></div>
+      <div class="ib"><i class="fa-solid fa-magnifying-glass"></i></div>
+      <div class="adav" id="ad-topav">A</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- OVERVIEW -->
+    <div id="pg-overview" class="pg active">
+      <div class="alert-bar"><i class="fa-solid fa-triangle-exclamation"></i> 3 new bookings require approval. <a href="#" onclick="sp('bookings')" style="margin-left:8px;font-weight:700;color:var(--gold);">Review now →</a></div>
+      <div class="stats">
+        <div class="sc" style="animation-delay:.1s"><div class="si g"><i class="fa-solid fa-users"></i></div><div><div class="sv" id="v1">248</div><div class="sl">Total Users</div></div></div>
+        <div class="sc" style="animation-delay:.2s"><div class="si b"><i class="fa-solid fa-calendar-check"></i></div><div><div class="sv" id="v2">82</div><div class="sl">Total Bookings</div></div></div>
+        <div class="sc" style="animation-delay:.3s"><div class="si gr"><i class="fa-solid fa-indian-rupee-sign"></i></div><div><div class="sv" id="v3">4.2L</div><div class="sl">Revenue</div></div></div>
+        <div class="sc" style="animation-delay:.4s"><div class="si r"><i class="fa-solid fa-map-location-dot"></i></div><div><div class="sv" id="v4">12</div><div class="sl">Destinations</div></div></div>
+        <div class="sc" style="animation-delay:.5s"><div class="si p"><i class="fa-solid fa-star"></i></div><div><div class="sv" id="v5">4.8</div><div class="sl">Avg Rating</div></div></div>
+      </div>
+      <div class="sh"><h3>Recent Activity</h3></div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>User</th><th>Action</th><th>Destination</th><th>Date</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Priya Sharma</td><td>New Booking</td><td>Jim Corbett</td><td>25 Jun 2026</td><td><span class="bs pending">Pending</span></td></tr>
+            <tr><td>Michael T.</td><td>New Booking</td><td>Ranthambore</td><td>24 Jun 2026</td><td><span class="bs active">Confirmed</span></td></tr>
+            <tr><td>Sarah Jenkins</td><td>Cancelled</td><td>Gir National Park</td><td>23 Jun 2026</td><td><span class="bs blocked">Cancelled</span></td></tr>
+            <tr><td>Rahul Verma</td><td>New Booking</td><td>Kaziranga</td><td>22 Jun 2026</td><td><span class="bs active">Confirmed</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- USERS -->
+    <div id="pg-users" class="pg">
+      <div class="sh"><h3>All Users</h3><button onclick="alert('Add user')"><i class="fa-solid fa-plus"></i> Add User</button></div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Bookings</th><th>Joined</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Priya Sharma</td><td>priya@email.com</td><td>Traveler</td><td>3</td><td>Jan 2026</td><td><span class="bs active">Active</span></td></tr>
+            <tr><td>Michael T.</td><td>michael@email.com</td><td>Traveler</td><td>5</td><td>Feb 2026</td><td><span class="bs active">Active</span></td></tr>
+            <tr><td>Sarah Jenkins</td><td>sarah@email.com</td><td>Traveler</td><td>2</td><td>Mar 2026</td><td><span class="bs pending">Inactive</span></td></tr>
+            <tr><td>Rahul Verma</td><td>rahul@email.com</td><td>Traveler</td><td>7</td><td>Dec 2025</td><td><span class="bs active">Active</span></td></tr>
+            <tr><td>Aisha Khan</td><td>aisha@email.com</td><td>Traveler</td><td>1</td><td>Jun 2026</td><td><span class="bs blocked">Blocked</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- BOOKINGS -->
+    <div id="pg-bookings" class="pg">
+      <div class="sh"><h3>All Bookings</h3></div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>ID</th><th>User</th><th>Destination</th><th>Date</th><th>Guests</th><th>Amount</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>#WL-001</td><td>Priya Sharma</td><td>Jim Corbett</td><td>12 Jul 2026</td><td>2</td><td>₹18,500</td><td><span class="bs pending">Pending</span></td></tr>
+            <tr><td>#WL-002</td><td>Michael T.</td><td>Ranthambore</td><td>28 Aug 2026</td><td>4</td><td>₹22,000</td><td><span class="bs active">Confirmed</span></td></tr>
+            <tr><td>#WL-003</td><td>Sarah Jenkins</td><td>Gir National Park</td><td>15 Mar 2026</td><td>2</td><td>₹15,000</td><td><span class="bs blocked">Cancelled</span></td></tr>
+            <tr><td>#WL-004</td><td>Rahul Verma</td><td>Kaziranga</td><td>10 Jan 2026</td><td>3</td><td>₹19,800</td><td><span class="bs active">Confirmed</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- DESTINATIONS -->
+    <div id="pg-destinations" class="pg">
+      <div class="sh"><h3>Destinations</h3><button onclick="alert('Add destination')"><i class="fa-solid fa-plus"></i> Add</button></div>
+      <div class="cg">
+        <div class="ic" style="animation-delay:.1s"><div class="ci"><i class="fa-solid fa-tree"></i></div><h4>Jim Corbett</h4><p>Royal Bengal Tiger habitat. <strong style="color:var(--gold)">18 bookings</strong> this month.</p></div>
+        <div class="ic" style="animation-delay:.2s"><div class="ci"><i class="fa-solid fa-paw"></i></div><h4>Ranthambore</h4><p>Ancient ruins + wildlife. <strong style="color:var(--gold)">14 bookings</strong> this month.</p></div>
+        <div class="ic" style="animation-delay:.3s"><div class="ci"><i class="fa-solid fa-shield-halved"></i></div><h4>Gir National Park</h4><p>Asiatic Lions. <strong style="color:var(--gold)">9 bookings</strong> this month.</p></div>
+        <div class="ic" style="animation-delay:.4s"><div class="ci"><i class="fa-solid fa-water"></i></div><h4>Kaziranga</h4><p>One-horned rhinos. <strong style="color:var(--gold)">11 bookings</strong> this month.</p></div>
+        <div class="ic" style="animation-delay:.5s"><div class="ci"><i class="fa-solid fa-mountain"></i></div><h4>Bandhavgarh</h4><p>High tiger density. <strong style="color:var(--gold)">7 bookings</strong> this month.</p></div>
+      </div>
+    </div>
+
+    <!-- REPORTS -->
+    <div id="pg-reports" class="pg">
+      <div class="sh"><h3>Reports & Analytics</h3></div>
+      <div class="stats">
+        <div class="sc"><div class="si g"><i class="fa-solid fa-arrow-trend-up"></i></div><div><div class="sv">+32%</div><div class="sl">Bookings Growth</div></div></div>
+        <div class="sc"><div class="si b"><i class="fa-solid fa-users-line"></i></div><div><div class="sv">+18%</div><div class="sl">New Users</div></div></div>
+        <div class="sc"><div class="si gr"><i class="fa-solid fa-coins"></i></div><div><div class="sv">+25%</div><div class="sl">Revenue Growth</div></div></div>
+      </div>
+      <div class="sh" style="margin-top:10px;"><h3>Monthly Booking Summary</h3></div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Month</th><th>Bookings</th><th>Revenue</th><th>New Users</th></tr></thead>
+          <tbody>
+            <tr><td>April 2026</td><td>18</td><td>₹3,24,000</td><td>22</td></tr>
+            <tr><td>May 2026</td><td>24</td><td>₹4,10,500</td><td>31</td></tr>
+            <tr><td>June 2026</td><td>28</td><td>₹4,89,000</td><td>38</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div id="pg-settings" class="pg">
+      <div class="sh"><h3>Site Settings</h3></div>
+      <div class="pf">
+        <div class="fr"><label>Site Name</label><input type="text" value="Stackly Wildlife Tourism"></div>
+        <div class="fr"><label>Contact Email</label><input type="email" value="info@stacklywildlife.com"></div>
+        <div class="fr"><label>Contact Phone</label><input type="tel" value="+91 98765 43210"></div>
+        <div class="fr"><label>Booking Status</label><select><option>Open</option><option>Closed</option><option>Seasonal</option></select></div>
+        <div class="fr"><label>Announcement Banner</label><textarea rows="2" placeholder="Enter announcement text..."></textarea></div>
+        <button class="bsv" onclick="alert('Settings saved!')"><i class="fa-solid fa-save"></i> Save Settings</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function sp(id){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('pg-'+id).classList.add('active');
+  document.querySelector('[data-pg="'+id+'"]').classList.add('active');
+  cs();
+}
+function os(){document.getElementById('sidebar').classList.add('open');document.getElementById('overlay').classList.add('show');}
+function cs(){document.getElementById('sidebar').classList.remove('open');document.getElementById('overlay').classList.remove('show');}
+// ── Load admin from localStorage ──
+(function(){
+  const email = localStorage.getItem('wt_user_email') || 'admin@stacklywildlife.com';
+  const name  = localStorage.getItem('wt_user_name')  || email.split('@')[0];
+  const init  = name.charAt(0).toUpperCase();
+  document.getElementById('ad-avatar').textContent = init;
+  document.getElementById('ad-name').textContent   = name;
+  document.getElementById('ad-email').textContent  = email;
+  document.getElementById('ad-topav').textContent  = init;
+  // Also show logged-in email in alert bar
+  const alert = document.querySelector('.alert-bar');
+  if(alert){
+    const tag = document.createElement('span');
+    tag.style.cssText='margin-left:auto;font-size:.78rem;color:rgba(255,255,255,.55);';
+    tag.textContent='Logged in: '+email;
+    alert.appendChild(tag);
+  }
+})();
+</script>
+</body>
+</html>

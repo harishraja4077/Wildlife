@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login – Stackly Wildlife Tourism</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1c3627;
+            --gold: #d4af37;
+            --gold-dark: #b5952f;
+            --glass: rgba(255,255,255,0.08);
+            --glass-border: rgba(255,255,255,0.18);
+            --text: #f5f5f5;
+            --muted: rgba(255,255,255,0.6);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0a1f14 0%, #1c3627 50%, #0d2b1a 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* ── Animated Background Particles ── */
+        .bg-particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(212,175,55,0.12);
+            animation: floatUp linear infinite;
+        }
+        @keyframes floatUp {
+            0%   { transform: translateY(110vh) scale(0); opacity: 0; }
+            10%  { opacity: 1; }
+            90%  { opacity: 0.6; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+
+        /* ── Glow Orbs ── */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb-1 { width: 500px; height: 500px; background: rgba(28,54,39,0.6); top: -150px; left: -150px; animation: drift 12s ease-in-out infinite alternate; }
+        .orb-2 { width: 400px; height: 400px; background: rgba(212,175,55,0.08); bottom: -100px; right: -100px; animation: drift 15s ease-in-out infinite alternate-reverse; }
+        @keyframes drift { 0% { transform: translate(0,0); } 100% { transform: translate(40px, 30px); } }
+
+        /* ── Navbar ── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            padding: 18px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 100;
+            background: rgba(10,31,20,0.5);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .nav-logo img { height: 44px; }
+        .nav-links-list { display: flex; gap: 30px; list-style: none; }
+        .nav-links-list a { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.3s; }
+        .nav-links-list a:hover, .nav-links-list a.active { color: var(--gold); }
+
+        /* ── Auth Card ── */
+        .auth-wrapper {
+            position: relative; z-index: 10;
+            width: 100%; max-width: 480px;
+            padding: 0 20px;
+            animation: slideUp 0.8s cubic-bezier(0.25,0.8,0.25,1) both;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .auth-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 48px 44px;
+            box-shadow: 0 32px 64px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        .auth-brand {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .auth-brand .brand-icon {
+            width: 64px; height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 16px;
+            box-shadow: 0 8px 24px rgba(212,175,55,0.4);
+            animation: pulseglow 3s ease-in-out infinite;
+        }
+        @keyframes pulseglow {
+            0%, 100% { box-shadow: 0 8px 24px rgba(212,175,55,0.4); }
+            50%       { box-shadow: 0 8px 40px rgba(212,175,55,0.7); }
+        }
+        .auth-brand .brand-icon i { color: #fff; font-size: 1.5rem; }
+        .auth-brand h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .auth-brand p { color: var(--muted); font-size: 0.88rem; }
+
+        /* ── Role Toggle ── */
+        .role-toggle {
+            display: flex;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 5px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .role-toggle input[type="radio"] { display: none; }
+        .role-toggle label {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            color: var(--muted);
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            z-index: 1;
+            position: relative;
+            display: flex; align-items: center; justify-content: center; gap: 7px;
+        }
+        .role-toggle input[type="radio"]:checked + label {
+            color: #1c3627;
+        }
+        /* Sliding pill */
+        .role-toggle::before {
+            content: '';
+            position: absolute;
+            top: 5px; bottom: 5px;
+            left: 5px;
+            width: calc(50% - 5px);
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            box-shadow: 0 4px 14px rgba(212,175,55,0.4);
+            transition: transform 0.4s cubic-bezier(0.25,0.8,0.25,1);
+        }
+        .role-toggle #role_admin:checked ~ .role-pill::before,
+        body:has(#role_admin:checked) .role-toggle::before { transform: translateX(100%); }
+
+        /* JS‑driven pill */
+        .role-pill { display: none; }
+
+        /* ── Input Groups ── */
+        .input-group {
+            position: relative;
+            margin-bottom: 22px;
+        }
+        .input-group .input-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            pointer-events: none;
+        }
+        .input-group input {
+            width: 100%;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 14px 16px 14px 46px;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+            outline: none;
+        }
+        .input-group input::placeholder { color: rgba(255,255,255,0.35); }
+        .input-group input:focus {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212,175,55,0.15);
+        }
+        .input-group input:focus + .input-icon,
+        .input-group:focus-within .input-icon { color: var(--gold); }
+
+        /* password toggle eye */
+        .eye-btn {
+            position: absolute;
+            right: 14px; top: 50%;
+            transform: translateY(-50%);
+            background: none; border: none;
+            color: var(--muted); cursor: pointer;
+            font-size: 0.95rem; transition: color 0.3s;
+        }
+        .eye-btn:hover { color: var(--gold); }
+
+        /* ── Submit Button ── */
+        .btn-auth {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 8px 24px rgba(212,175,55,0.35);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-auth::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+            transition: left 0.5s ease;
+        }
+        .btn-auth:hover::before { left: 100%; }
+        .btn-auth:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(212,175,55,0.5); }
+        .btn-auth:active { transform: translateY(0); }
+
+        /* ── Divider ── */
+        .divider { display: flex; align-items: center; gap: 14px; margin: 24px 0; color: var(--muted); font-size: 0.8rem; }
+        .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--glass-border); }
+
+        /* ── Footer Links ── */
+        .auth-footer { text-align: center; margin-top: 24px; color: var(--muted); font-size: 0.88rem; }
+        .auth-footer a { color: var(--gold); text-decoration: none; font-weight: 600; transition: opacity 0.2s; }
+        .auth-footer a:hover { opacity: 0.8; text-decoration: underline; }
+
+        /* ── Ripple ── */
+        @keyframes ripple {
+            to { transform: scale(4); opacity: 0; }
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 520px) {
+            nav { padding: 14px 20px; }
+            .nav-links-list { display: none; }
+            .auth-card { padding: 36px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animated Particles -->
+    <div class="bg-particles" id="particles"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <!-- Navbar -->
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <img src="images/logo.webp" alt="Stackly Wildlife Tourism">
+        </a>
+        <ul class="nav-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destination.html">Destinations</a></li>
+            <li><a href="holidaypackage.html">Packages</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li> 
+            <li><a href="login.html" class="active">Login</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <!-- Auth Card -->
+    <div class="auth-wrapper">
+        <div class="auth-card">
+
+            <!-- Brand -->
+            <div class="auth-brand">
+                <div class="brand-icon"><i class="fa-solid fa-paw"></i></div>
+                <h1>Welcome Back</h1>
+                <p>Sign in to your Stackly Wildlife account</p>
+            </div>
+
+            <!-- Role Toggle -->
+            <div class="role-toggle" id="roleToggle">
+                <input type="radio" id="role_user"  name="role" value="user"  checked>
+                <label for="role_user"><i class="fa-solid fa-user"></i> Traveler</label>
+                <input type="radio" id="role_admin" name="role" value="admin">
+                <label for="role_admin"><i class="fa-solid fa-shield-halved"></i> Admin</label>
+            </div>
+
+            <!-- Form -->
+            <form id="loginForm" novalidate>
+                <div class="input-group">
+                    <input type="email" id="loginEmail" placeholder="Email address" required>
+                    <i class="fa-solid fa-envelope input-icon"></i>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <button type="button" class="eye-btn" id="eyeBtn">
+                        <i class="fa-solid fa-eye" id="eyeIcon"></i>
+                    </button>
+                </div>
+
+                <button type="submit" class="btn-auth">
+                    <i class="fa-solid fa-right-to-bracket"></i>&nbsp; Login
+                </button>
+            </form>
+
+            <div class="divider">or</div>
+
+            <div class="auth-footer">
+                Don't have an account? <a href="signup.html">Create one &rarr;</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // ── Particles ──
+        (function() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 30; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                const size = Math.random() * 18 + 6;
+                p.style.cssText = `
+                    width:${size}px; height:${size}px;
+                    left:${Math.random()*100}%;
+                    animation-duration:${Math.random()*15+10}s;
+                    animation-delay:${Math.random()*-20}s;
+                    opacity:${Math.random()*0.3+0.05};
+                `;
+                container.appendChild(p);
+            }
+        })();
+
+        // ── Role Toggle Pill ──
+        const radios = document.querySelectorAll('#roleToggle input[type="radio"]');
+        const toggle = document.getElementById('roleToggle');
+        function updatePill() {
+            const val = document.querySelector('#roleToggle input:checked').value;
+            toggle.style.setProperty('--pill-offset', val === 'admin' ? '1' : '0');
+            if (val === 'admin') {
+                toggle.style.cssText += '--x:calc(50%)';
+                toggle.querySelector('::before');
+                // Move pill via JS pseudo approach
+                toggle.dataset.active = 'admin';
+            } else {
+                toggle.dataset.active = 'user';
+            }
+        }
+        // Simpler approach: move via JS class
+        (function() {
+            const style = document.createElement('style');
+            document.head.appendChild(style);
+            function movePill() {
+                const isAdmin = document.getElementById('role_admin').checked;
+                style.textContent = `
+                    #roleToggle::before {
+                        transform: translateX(${isAdmin ? '100%' : '0'});
+                    }
+                `;
+            }
+            radios.forEach(r => r.addEventListener('change', movePill));
+            movePill();
+        })();
+
+        // ── Password Eye Toggle ──
+        document.getElementById('eyeBtn').addEventListener('click', function() {
+            const input = document.getElementById('loginPassword');
+            const icon  = document.getElementById('eyeIcon');
+            const isHidden = input.type === 'password';
+            input.type = isHidden ? 'text' : 'password';
+            icon.className = isHidden ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
+        });
+
+        // ── Form Submit ──
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const role  = document.querySelector('#roleToggle input:checked').value;
+            const email = document.getElementById('loginEmail').value.trim();
+            const pass  = document.getElementById('loginPassword').value.trim();
+            if (!email || !pass) return;
+            // Save to localStorage so dashboards can read it
+            localStorage.setItem('wt_user_email', email);
+            localStorage.setItem('wt_user_role', role);
+            // Derive display name from email (before @)
+            const name = email.split('@')[0].replace(/[._-]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+            localStorage.setItem('wt_user_name', name);
+            if (role === 'admin') {
+                window.location.href = 'admin-dashboard.html';
+            } else {
+                window.location.href = 'user-dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html>

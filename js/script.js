@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     faqQuestions.forEach(question => {
         question.addEventListener('click', () => {
             const answer = question.nextElementSibling;
-            
+
             // Close all other open accordions
             faqQuestions.forEach(q => {
                 if (q !== question) {
